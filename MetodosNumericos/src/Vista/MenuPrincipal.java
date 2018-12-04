@@ -1,13 +1,18 @@
 package metodosmaster;
 
-import java.util.ArrayList;
-import Modelo.Gauss;
-import Vista.multiMatriz;
+
 import Controlador.MatrizController;
 import Modelo.MultiplicacionMatrices;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * @version 1.0
+ * @serial 4564564
+ * @author javiershaka
+ *  github https://github.com/javiershaka/Rompecabezas.git
+ * corro javiershaka@gmail.com
+ * hotmail yahoo lo que quiran
+ */
 public class MenuPrincipal extends javax.swing.JFrame {
 
     DefaultTableModel Regina = new DefaultTableModel();
@@ -74,8 +79,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Metodos Numericos");
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 51, 204));
+        jTabbedPane1.setBorder(new javax.swing.border.MatteBorder(null));
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
@@ -327,7 +334,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -465,13 +472,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                     .addComponent(txtX, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnRealizar)
                             .addComponent(txtPredic, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,10 +502,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPredic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("MinimosCuadrados", jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/dif.jpg"))); // NOI18N
 
@@ -509,7 +518,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addComponent(jLabel17)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,7 +549,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(134, Short.MAX_VALUE)
+                .addContainerGap(132, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -569,7 +578,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("About", jPanel6);

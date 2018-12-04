@@ -1,0 +1,1 @@
+metodosmaster.Secante
