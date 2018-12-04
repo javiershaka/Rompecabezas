@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.util.Scanner;
+import metodosmaster.MenuPrincipal;
 
 /**
  *
@@ -34,10 +35,12 @@ public class Inversa {
       
      public  void MultiplicarMatrices(double matrizAuxm[][], int var) {
         for (int x = 0; x < var; x++) {
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
             for (int y = 0; y < (var + 1); y++) {
-                System.out.print(" " + matrizAuxm[x][y] + " |");
+                MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "" + matrizAuxm[x][y]);
+            //    System.out.print(" " + matrizAuxm[x][y] + " |");
             }
-            System.out.println("");
+            //System.out.println("");
         }
 
     }
@@ -52,8 +55,8 @@ public class Inversa {
         Scanner leer = new Scanner(System.in);
         int var = 0, piv = 0;
         double matrizAux[][];
-        System.out.println("\t  metodo Matrices inversas ");
-        System.out.println("\n¿Cuantas variables tiene tu sistema?");
+     //   System.out.println("\t  metodo Matrices inversas ");
+     //   System.out.println("\n¿Cuantas variables tiene tu sistema?");
         //var = leer.nextInt();
         
         matrizAux = matriz;
@@ -76,20 +79,32 @@ public class Inversa {
         for (int a = 0; a < var; a++) {
             MatrizB(matrizAux, piv, var);
 
-            System.out.println("\tRenglon " + (a + 1) + " entre el MatrizB");
+             //    System.out.println("\tRenglon " + (a + 1) + " entre el pivote");
             MultiplicarMatrices(matrizAux, var);
 
-            System.out.println("");
+       //     System.out.println("");
 
-            System.out.println("\tHaciendo ceros");
+         //   System.out.println("\tHaciendo ceros");
             hacerceros(matrizAux, piv, var);
-
+         //   MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n"+"HACIENDO 0");
             MultiplicarMatrices(matrizAux, var);
-            System.out.println("");
+         //   System.out.println("");
+//            System.out.println("\tRenglon " + (a + 1) + " entre el MatrizB");
+//            MultiplicarMatrices(matrizAux, var);
+//
+//            System.out.println("");
+//
+//            System.out.println("\tHaciendo ceros");
+//            hacerceros(matrizAux, piv, var);
+//
+//            MultiplicarMatrices(matrizAux, var);
+//            System.out.println("");
             piv++;
         }
         for (int x = 0; x < var; x++) {
-            System.out.println("La variable X" + (x + 1) + " es: " + matrizAux[x][var]);
+                        MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n"+(x + 1) + " es: " + matrizAux[x][var]);
+
+           // System.out.println("La variable X" + (x + 1) + " es: " + matrizAux[x][var]);
         }
   
     }

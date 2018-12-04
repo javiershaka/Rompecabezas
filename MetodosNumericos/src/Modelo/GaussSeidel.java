@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import metodosmaster.MenuPrincipal;
 
 /**
  *
@@ -17,16 +18,14 @@ import javax.swing.JOptionPane;
 public class GaussSeidel {
 
     public void Seidel(double matriz[][], double error) {
-        
 
-
-             Scanner teclado = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
         System.out.println("Gaus-Seidel Iteraciones");
-        double matrizRaiz[][] =matriz;
-        
+        double matrizRaiz[][] = matriz;
+
         int filas = matrizRaiz.length;
-        int columnas= matrizRaiz[0].length;
-    
+        int columnas = matrizRaiz[0].length;
+
 ////        double matrizRaiz[][] = new double[filas][columnas];
 //        System.out.println("LLENAR TODOS LOS CAMPOS DE LA MATRIZ");
 //        for (int i = 0; i < filas; i++) {
@@ -35,14 +34,13 @@ public class GaussSeidel {
 //                matrizRaiz[i][j] = teclado.nextDouble();
 //            }
 //        }
-
-        System.out.println("IMPRESION DE LA MATRIZ");
-        for (int i = 0; i < filas; i++) {
-            System.out.println("");
-            for (int j = 0; j < columnas; j++) {
-                System.out.print("|" + matrizRaiz[i][j]);
-            }
-        }
+//        System.out.println("IMPRESION DE LA MATRIZ");
+//        for (int i = 0; i < filas; i++) {
+//            System.out.println("");
+//            for (int j = 0; j < columnas; j++) {
+//                System.out.print("|" + matrizRaiz[i][j]);
+//            }
+//        }
         double matrizB[] = new double[filas];
         for (int i = 0; i < filas; i++) {
             matrizB[i] = matrizRaiz[i][(columnas - 1)];
@@ -93,15 +91,18 @@ public class GaussSeidel {
             }
 
         }
-        System.out.println("");
-        System.out.println("impresion de matriz diagonal dominante dominante");
+        //System.out.println("");
+        MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n" + "Impresion matriz diagonal dominante");
+        //System.out.println("impresion de matriz diagonal dominante dominante");
         for (int i = 0; i < filas; i++) {
-            System.out.println("");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+//System.out.println("");
             for (int j = 0; j < columnas; j++) {
-                System.out.print("|" + matrizReplicaDominante[i][j]);
+                MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n" + matrizReplicaDominante[i][j]);
+                // System.out.print("|" + matrizReplicaDominante[i][j]);
             }
         }
-        System.out.println("");
+        //  System.out.println("");
         List<Double> iteracionesX = new ArrayList<Double>();
         List<Double> iteracionesY = new ArrayList<Double>();
         List<Double> iteracionesZ = new ArrayList<Double>();
@@ -139,8 +140,10 @@ public class GaussSeidel {
         List<Double> errorIteracionZ = new ArrayList<Double>();
         List<Double> errorIteracionT = new ArrayList<Double>();
 
-        System.out.println("Iteracion  / x1 /x2 /x3     Error Relativo porcentual");
-        System.out.println("|0|0|0|0");
+//        System.out.println("Iteracion  / x1 /x2 /x3     Error Relativo porcentual");
+//        System.out.println("|0|0|0|0");
+        MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n" + "Iteraciones");
+        MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n" + "0   0   0   0");
         errorIteracionX.add(0.0);
         errorIteracionY.add(0.0);
         errorIteracionZ.add(0.0);
@@ -152,21 +155,22 @@ public class GaussSeidel {
                 errorIteracionZ.add((iteracionesZ.get(i) - iteracionesZ.get(i - 1)) * 100);
             }
             for (int i = 1; i < iteracionesX.size(); i++) {
-                System.out.println("" + i + "|" + iteracionesX.get(i) + "|" + iteracionesY.get(i) + "|" + iteracionesZ.get(i) + "|" + errorIteracionX.get(i) + "|" + errorIteracionY.get(i) + "|" + errorIteracionZ.get(i));
+                MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n" + "" + i + "|" + iteracionesX.get(i) + "|" + iteracionesY.get(i) + "|" + iteracionesZ.get(i) + "|" + errorIteracionX.get(i) + "|" + errorIteracionY.get(i) + "|" + errorIteracionZ.get(i));
+                //     System.out.println("" + i + "|" + iteracionesX.get(i) + "|" + iteracionesY.get(i) + "|" + iteracionesZ.get(i) + "|" + errorIteracionX.get(i) + "|" + errorIteracionY.get(i) + "|" + errorIteracionZ.get(i));
             }
         }
         if (filas == 4) {
             for (int i = 1; i < iteracionesX.size(); i++) {
-                errorIteracionX.add((iteracionesX.get(i) - iteracionesX.get(i - 1) /iteracionesX.get(i) ) * 100);
+                errorIteracionX.add((iteracionesX.get(i) - iteracionesX.get(i - 1) / iteracionesX.get(i)) * 100);
                 errorIteracionY.add((iteracionesY.get(i) - iteracionesY.get(i - 1)) * 100);
                 errorIteracionZ.add((iteracionesZ.get(i) - iteracionesZ.get(i - 1)) * 100);
                 errorIteracionT.add((iteracionesT.get(i) - iteracionesT.get(i - 1)) * 100);
             }
             for (int i = 1; i < iteracionesX.size(); i++) {
-                System.out.println("" + i + "|" + iteracionesX.get(i) + "|" + iteracionesY.get(i) + "|" + iteracionesZ.get(i) + "|" + iteracionesT.get(i) + "|" + errorIteracionX.get(i) + "|" + errorIteracionY.get(i) + "|" + errorIteracionZ.get(i) + "|" + errorIteracionT.get(i));
-            }
+                MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n" +"" + i + "|" + iteracionesX.get(i) + "|" + iteracionesY.get(i) + "|" + iteracionesZ.get(i) + "|" + iteracionesT.get(i) + "|" + errorIteracionX.get(i) + "|" + errorIteracionY.get(i) + "|" + errorIteracionZ.get(i) + "|" + errorIteracionT.get(i));
 
-  
+           //     System.out.println("" + i + "|" + iteracionesX.get(i) + "|" + iteracionesY.get(i) + "|" + iteracionesZ.get(i) + "|" + iteracionesT.get(i) + "|" + errorIteracionX.get(i) + "|" + errorIteracionY.get(i) + "|" + errorIteracionZ.get(i) + "|" + errorIteracionT.get(i));
+            }
 
 //          Scanner teclado = new Scanner(System.in);
 //        System.out.println("Gaus-Seidel Iteraciones");
@@ -318,7 +322,6 @@ public class GaussSeidel {
 //            }
 //
 //        }
-        
 //        System.out.println("asdasdasdasdad");
 //        double matrizAux[][];
 //        matrizAux = matriz;
@@ -455,7 +458,7 @@ public class GaussSeidel {
 //            }
 //
 //        }
-
-    }}
+        }
+    }
 
 }

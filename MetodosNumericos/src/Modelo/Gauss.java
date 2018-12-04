@@ -7,6 +7,7 @@ package Modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import metodosmaster.MenuPrincipal;
 
 /**
  *
@@ -14,11 +15,12 @@ import java.util.List;
  */
 public class Gauss {
 
-    public void guassiana(double matriz[][]) {
+    public void Guassiana(double matriz[][]) {
 
         double x;
         double y;
         double z;
+        double t;
         double duplicadorSuperior;
         double duplicadorInferior;
         double matrizAux[][] = matriz;
@@ -42,7 +44,6 @@ public class Gauss {
                     }
 
                 }
-                System.out.println("" + matrizAux[reglon][fila]);
 
                 for (int i = 0; i < matrizAux[0].length; i++) {
                     matrizAux[reglon][i] = matrizAux[reglon][i] + matrizAux[fila][i];
@@ -56,27 +57,49 @@ public class Gauss {
                 }
 
             }
-
             for (int i = 0; i < matriz.length; i++) {
-                System.out.println("");
+                MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+                //System.out.println("");
                 for (int j = 0; j < matriz[0].length; j++) {
 
-                    System.out.print("#" + matrizAux[i][j]);
+                    MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "" + matrizAux[i][j]);
+                    //    System.out.print("#" + matrizAux[i][j]);
                 }
 
             }
 
         }
 
-        z = matrizAux[2][3] / matrizAux[2][2];
-        y = (matrizAux[1][3] - (matrizAux[1][2] * z)) / matrizAux[1][1];
-        x = (matrizAux[0][3] - (matrizAux[0][2] * z) - (matrizAux[0][1] * y)) / (matrizAux[0][0]);
         System.out.println("");
-        System.out.println("z" + z);
-        System.out.println("y" + y);
-        System.out.println("x" + x);
-        System.out.println("comprovacion");
 
+        
+        if (matrizAux.length == 3) {
+            z = matrizAux[2][3] / matrizAux[2][2];
+            y = (matrizAux[1][3] - (matrizAux[1][2] * z)) / matrizAux[1][1];
+            x = (matrizAux[0][3] - (matrizAux[0][2] * z) - (matrizAux[0][1] * y)) / (matrizAux[0][0]);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de x: " +x);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de y: " +y);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de z: " +z);
+        }
+        if (matrizAux.length == 4) {
+            t = matrizAux[3][4] / matrizAux[3][3];
+            z = (matrizAux[2][4] - (matrizAux[2][3] * t)) / matrizAux[2][2];
+            y = (matrizAux[1][4] - (matrizAux[1][3] * t) - (matrizAux[0][1] * z)) / (matrizAux[1][1]);
+            x = (matrizAux[0][4] - (matrizAux[0][3] * t) - (matrizAux[0][2] * z) - (matrizAux[0][1] *y)) / (matrizAux[0][0]);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de x: " +x);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de y: " +y);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de z: " +z);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "Valor de t: " +t);
+        }
+
+        // System.out.println("comprovacion");
         //a
     }
 

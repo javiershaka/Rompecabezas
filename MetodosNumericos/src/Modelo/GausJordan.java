@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.util.Scanner;
+import metodosmaster.MenuPrincipal;
 
 /**
  *
@@ -13,17 +14,19 @@ import java.util.Scanner;
  */
 public class GausJordan {
 
-    public static void muestramatrizAux(double matrizAuxm[][], int var) {
+    public  void muestramatrizAux(double matrizAuxm[][], int var) {
         for (int x = 0; x < var; x++) {
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n");
             for (int y = 0; y < (var + 1); y++) {
-                System.out.print(" " + matrizAuxm[x][y] + " |");
+                MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "" + matrizAuxm[x][y]);
+             //   System.out.print(" " + matrizAuxm[x][y] + " |");
             }
-            System.out.println("");
+       //     System.out.println("");
         }
 
     }
 
-    public static void pivote(double matrizAuxp[][], int piv, int var) {
+    public  void pivote(double matrizAuxp[][], int piv, int var) {
         double temp = 0;
         temp = matrizAuxp[piv][piv];
         for (int y = 0; y < (var + 1); y++) {
@@ -32,7 +35,7 @@ public class GausJordan {
         }
     }
 
-    public static void hacerceros(double matrizAuxh[][], int piv, int var) {
+    public  void hacerceros(double matrizAuxh[][], int piv, int var) {
         for (int x = 0; x < var; x++) {
             if (x != piv) {
                 double c = matrizAuxh[x][piv];
@@ -43,14 +46,14 @@ public class GausJordan {
         }
     }
 
-    public static void matrizGaussJordan(double matriz[][]) {
+    public  void matrizGaussJordan(double matriz[][]) {
        
       
         Scanner leer = new Scanner(System.in);
         int var = 0, piv = 0;
         double matrizAux[][];
-        System.out.println("\t  Metodo de Gauss Jordan ");
-        System.out.println("\n¿Cuantas variables tiene tu sistema?");
+    //    System.out.println("\t  Metodo de Gauss Jordan ");
+      //  System.out.println("\n¿Cuantas variables tiene tu sistema?");
         //var = leer.nextInt();
         
         matrizAux = matriz;
@@ -73,20 +76,21 @@ public class GausJordan {
         for (int a = 0; a < var; a++) {
             pivote(matrizAux, piv, var);
 
-            System.out.println("\tRenglon " + (a + 1) + " entre el pivote");
+        //    System.out.println("\tRenglon " + (a + 1) + " entre el pivote");
             muestramatrizAux(matrizAux, var);
 
-            System.out.println("");
+       //     System.out.println("");
 
-            System.out.println("\tHaciendo ceros");
+         //   System.out.println("\tHaciendo ceros");
             hacerceros(matrizAux, piv, var);
-
+         //   MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n"+"HACIENDO 0");
             muestramatrizAux(matrizAux, var);
-            System.out.println("");
+         //   System.out.println("");
             piv++;
         }
         for (int x = 0; x < var; x++) {
-            System.out.println("La variable X" + (x + 1) + " es: " + matrizAux[x][var]);
+            MenuPrincipal.txtArea.setText(MenuPrincipal.txtArea.getText() + "\n"+(x + 1) + " es: " + matrizAux[x][var]);
+           // System.out.println("La variable X" + (x + 1) + " es: " + matrizAux[x][var]);
         }
   
     }

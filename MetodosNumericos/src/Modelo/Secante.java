@@ -4,20 +4,20 @@ package metodosmaster;
 
 public class Secante {
   
-    double Zen[]= new double[50];
-    //Dua seria x1 y Era x0
-    double Dua, Era;
-    //esta es 
-    double Chopy;
-    //este es el error
-    double E = 10;
-    
-   Secante (double Dua, double Era){
-  //Estos son los valores iniciales de x1 y x2
-   Zen[0] = Dua;
-   Zen[1] = Era;
-   
-   }
+//    double Zen[]= new double[50];
+//    //Dua seria x1 y Era x0
+//    double Dua, Era;
+//    //esta es 
+//    double Chopy;
+//    //este es el error
+//    double E = 10;
+//    
+//   Secante (double Dua, double Era){
+//  //Estos son los valores iniciales de x1 y x2
+//   Zen[0] = Dua;
+//   Zen[1] = Era;
+//   
+//   }
    //Este metodo te define una ecuación de segundo grado a resolver
    double fo(double x){
        double y;
@@ -26,7 +26,12 @@ public class Secante {
        
    }
     //Este es basicamente el metodo que te hace el calculo
-   double calularRaiz(){
+   double calularRaiz(double E, double Chopy, double Dua, double Era, double Zen[]){
+       if(Zen.length >= 2){
+           Zen[0] = Dua;
+           Zen[1] = Era;
+           
+       }
    int i = 1;
    while(E>0.001){
        Zen[i+1] = Zen[i]-( (fo(Zen[i])*(Zen[i-1]-Zen[i]))/(fo(Zen[i-1])-fo(Zen[i])) );
